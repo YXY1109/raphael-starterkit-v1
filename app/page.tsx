@@ -174,8 +174,8 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative py-20 lg:py-32 bg-gradient-to-b from-muted/20 to-background">
         <div className="absolute inset-0 bg-grid-pattern opacity-5" />
-        <div className="container px-4 md:px-6 relative">
-          <div className="flex flex-col items-center space-y-4 text-center">
+        <div className="container relative">
+          <div className="flex flex-col items-center justify-center space-y-4 text-center min-h-[400px]">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -245,8 +245,8 @@ export default function Home() {
 
       {/* Main Content */}
       <section className="py-16 bg-background">
-        <div className="container px-4 md:px-6">
-          <div className="mx-auto max-w-6xl">
+        <div className="container">
+          <div className="mx-auto max-w-4xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -262,7 +262,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <div id="name-generator-form" data-name-generator-form>
+              <div id="name-generator-form" data-name-generator-form className="flex justify-center">
                 <NameGeneratorForm 
                   onGenerate={handleGenerate}
                   isGenerating={isGenerating}
@@ -294,8 +294,8 @@ export default function Home() {
 
       {/* Popular Names Section */}
       <section className="py-20 bg-gradient-to-b from-background to-muted/20" data-popular-names>
-        <div className="container px-4 md:px-6">
-          <div className="mx-auto max-w-6xl">
+        <div className="container">
+          <div className="mx-auto max-w-4xl">
             <PopularNames onScrollToGenerator={scrollToForm} />
           </div>
         </div>
@@ -303,7 +303,7 @@ export default function Home() {
 
       {/* Features Section */}
       <section id="features" className="py-20 bg-muted/20">
-        <div className="container px-4 md:px-6">
+        <div className="container">
           <div className="mx-auto max-w-6xl space-y-12 text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -383,7 +383,7 @@ export default function Home() {
 
       {/* Final CTA Section */}
       <section className="py-20 bg-gradient-to-b from-muted/10 to-background">
-        <div className="container px-4 md:px-6">
+        <div className="container">
           <div className="mx-auto max-w-4xl text-center space-y-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}

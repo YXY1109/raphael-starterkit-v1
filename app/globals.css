@@ -1,5 +1,19 @@
 @import "tailwindcss";
 
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
 :root {
   --background: 262.1 100% 100%;
   --foreground: 262.1 5% 10%;
@@ -46,11 +60,3 @@
   --radius: 0.5rem;
 }
 
-* {
-  border-color: hsl(var(--border));
-}
-
-body {
-  background-color: hsl(var(--background));
-  color: hsl(var(--foreground));
-}
