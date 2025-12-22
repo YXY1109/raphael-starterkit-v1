@@ -88,7 +88,7 @@ cd raphael-starter-kit
 ### 步骤 2: 安装依赖
 
 ```bash
-npm i
+pnpm i
 ```
 
 ### 步骤 3: 设置 Supabase
@@ -185,7 +185,7 @@ npm i
 ### 步骤 5: 运行开发服务器
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
 访问 [http://localhost:3000](http://localhost:3000) 查看你的应用程序。

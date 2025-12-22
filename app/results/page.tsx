@@ -105,7 +105,7 @@ export default function ResultsPage() {
 
   // Save current state to sessionStorage when data changes
   useEffect(() => {
-    if (isDataLoaded && generatedNames.length > 0) {
+    if (isDataLoaded && generatedNames.length > 0 && currentFormData) {
       const sessionData: SessionData = {
         names: generatedNames,
         formData: currentFormData,

@@ -1,10 +1,6 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  devIndicators: {
-    appIsrStatus: false,
-  },
-  
   // Configure webpack to ignore the external folder
   webpack: (config: any) => {
     config.watchOptions = {
@@ -13,6 +9,9 @@ const nextConfig: NextConfig = {
     };
     return config;
   },
+
+  // Empty turbopack config to silence the warning
+  turbopack: {},
 };
 
 export default nextConfig;

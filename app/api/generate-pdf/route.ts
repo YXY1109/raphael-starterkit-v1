@@ -175,8 +175,8 @@ export async function POST(request: NextRequest) {
 
       // 设置响应头并返回PDF
       const fileName = `${nameData.chinese}_certificate.pdf`;
-      
-      return new NextResponse(pdfBuffer, {
+
+      return new NextResponse(pdfBuffer as any, {
         status: 200,
         headers: {
           'Content-Type': 'application/pdf',
