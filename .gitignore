@@ -46,3 +46,6 @@ next-env.d.ts
 
 # External reference folder
 Chinesename.club/
+
+# Claude Code
+.claude/
