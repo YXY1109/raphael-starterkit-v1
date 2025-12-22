@@ -1,10 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-@layer base {
-  
-:root  {
+:root {
   --background: 262.1 100% 100%;
   --foreground: 262.1 5% 10%;
   --card: 262.1 50% 100%;
@@ -26,7 +22,8 @@
   --ring: 262.1 88.3% 57.8%;
   --radius: 0.5rem;
 }
-.dark  {
+
+.dark {
   --background: 262.1 50% 10%;
   --foreground: 262.1 5% 100%;
   --card: 262.1 50% 10%;
@@ -49,14 +46,11 @@
   --radius: 0.5rem;
 }
 
+* {
+  border-color: hsl(var(--border));
 }
 
-@layer base {
-  * {
-    border-color: hsl(var(--border));
-  }
-  body {
-    background-color: hsl(var(--background));
-    color: hsl(var(--foreground));
-  }
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
 }

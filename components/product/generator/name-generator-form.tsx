@@ -34,14 +34,14 @@ const formSchema = z.object({
   englishName: z.string().min(2, {
     message: "Name must be at least 2 characters.",
   }),
-  gender: z.enum(["male", "female", "other"], {
-    required_error: "Please select a gender.",
+  gender: z.enum(["male", "female", "other"]).refine(() => true, {
+    message: "Please select a gender.",
   }),
   birthYear: z.string().optional(),
   personalityTraits: z.string().optional(),
   namePreferences: z.string().optional(),
-  planType: z.enum(["1", "4"], {
-    required_error: "Please select a plan type.",
+  planType: z.enum(["1", "4"]).refine(() => true, {
+    message: "Please select a plan type.",
   }),
 });
 
