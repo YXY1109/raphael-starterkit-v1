@@ -1,11 +1,17 @@
 {
+  "name": "raphael-starterkit-v1",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "eslint"
   },
   "dependencies": {
+    "next": "16.1.0",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
     "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.2.0",
     "@hookform/resolvers": "^5.2.0",
@@ -26,24 +32,24 @@
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.11",
     "lucide-react": "^0.468.0",
-    "next": "latest",
     "next-themes": "^0.4.3",
     "openai": "^5.10.2",
     "prettier": "^3.3.3",
     "puppeteer": "^24.15.0",
-    "react": "19.0.0",
-    "react-dom": "19.0.0",
     "react-hook-form": "^7.61.1",
     "zod": "^3.25.76"
   },
   "devDependencies": {
-    "@types/node": "22.10.2",
-    "@types/react": "^19.0.2",
-    "@types/react-dom": "19.0.2",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.1.0",
     "postcss": "8.4.49",
     "tailwind-merge": "^2.5.2",
-    "tailwindcss": "3.4.17",
+    "tailwindcss": "^4",
     "tailwindcss-animate": "^1.0.7",
-    "typescript": "5.7.2"
+    "typescript": "^5"
   }
 }
