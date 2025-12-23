@@ -47,3 +47,7 @@ next-env.d.ts
 # External reference folder
 Chinesename.club/
 .claude
+
+# IDE
+.vscode
+.cursor
