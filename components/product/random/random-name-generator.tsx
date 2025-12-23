@@ -26,17 +26,23 @@ import { useUser } from "@/hooks/use-user";
 import NameCard from "@/components/product/results/name-card";
 
 const formSchema = z.object({
-  gender: z.enum(["male", "female", "neutral"]),
+  gender: z.enum(["male", "female", "neutral"], {
+    required_error: "Please select a gender preference.",
+  }),
   style: z.enum([
     "nature-inspired",
-    "achievement-focused",
+    "achievement-focused", 
     "elegance-intellectual",
     "celestial-aspiration",
     "harmony-trustworthiness",
     "strength-resilience",
     "traditional"
-  ]),
-  count: z.enum(["6", "9", "10", "12"]),
+  ], {
+    required_error: "Please select a style preference.",
+  }),
+  count: z.enum(["6", "9", "10", "12"], {
+    required_error: "Please select how many names to generate.",
+  }),
   surnameInitial: z.string().optional(),
 });
 

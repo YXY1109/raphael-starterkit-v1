@@ -34,14 +34,14 @@ const formSchema = z.object({
   englishName: z.string().min(2, {
     message: "Name must be at least 2 characters.",
   }),
-  gender: z.enum(["male", "female", "other"]).refine(() => true, {
-    message: "Please select a gender.",
+  gender: z.enum(["male", "female", "other"], {
+    required_error: "Please select a gender.",
   }),
   birthYear: z.string().optional(),
   personalityTraits: z.string().optional(),
   namePreferences: z.string().optional(),
-  planType: z.enum(["1", "4"]).refine(() => true, {
-    message: "Please select a plan type.",
+  planType: z.enum(["1", "4"], {
+    required_error: "Please select a plan type.",
   }),
 });
 
@@ -112,8 +112,8 @@ export default function NameGeneratorForm({ onGenerate, isGenerating, hasTriedFr
 
   // Check if user has enough credits
   const creditCost = parseInt(form.watch('planType') || '1');
-  const currentCredits = userCredits?.remaining_credits ?? 0;
-  const hasEnoughCredits: boolean = user ? currentCredits >= creditCost : true;
+  const currentCredits = userCredits?.remaining_credits || 0;
+  const hasEnoughCredits = user ? currentCredits >= creditCost : true;
 
   return (
     <motion.div
@@ -252,9 +252,9 @@ export default function NameGeneratorForm({ onGenerate, isGenerating, hasTriedFr
             </div>
 
             {/* Submit Button */}
-            <Button
-              type="submit"
-              disabled={(Boolean(isGenerating) || (user && !hasEnoughCredits)) as boolean}
+            <Button 
+              type="submit" 
+              disabled={isGenerating || (user && !hasEnoughCredits)}
               className="w-full h-14 text-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200"
             >
               {isGenerating ? (

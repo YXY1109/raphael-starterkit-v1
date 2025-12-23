@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Configure turbopack
+  turbopack: {},
+
   // Configure webpack to ignore the external folder
   webpack: (config: any) => {
     config.watchOptions = {
@@ -9,9 +12,6 @@ const nextConfig: NextConfig = {
     };
     return config;
   },
-
-  // Empty turbopack config to silence the warning
-  turbopack: {},
 };
 
 export default nextConfig;
