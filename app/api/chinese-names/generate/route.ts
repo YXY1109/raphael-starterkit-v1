@@ -2,17 +2,24 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/utils/supabase/server';
 import OpenAI from 'openai';
 
-// Initialize OpenAI client
-const openai = new OpenAI({
-  baseURL: process.env.OPENAI_BASE_URL || "https://openrouter.ai/api/v1",
-  apiKey: process.env.OPENROUTER_API_KEY || process.env.OPENAI_API_KEY || '',
-});
-
-// Determine which model to use based on configuration
+// Determine which provider to use based on baseURL
 const isOpenRouter = !process.env.OPENAI_BASE_URL || process.env.OPENAI_BASE_URL.includes("openrouter.ai");
+
+// Select API key based on provider to ensure consistency
+const apiKey = isOpenRouter
+  ? (process.env.OPENROUTER_API_KEY || process.env.OPENAI_API_KEY || '')
+  : (process.env.OPENAI_API_KEY || process.env.OPENROUTER_API_KEY || '');
+
+// Select model based on provider
 const model = isOpenRouter
   ? (process.env.OPENROUTER_MODEL || "google/gemini-2.5-flash")
   : (process.env.OPENAI_MODEL || "gpt-4o-mini");
+
+// Initialize OpenAI client with consistent baseURL and apiKey
+const openai = new OpenAI({
+  baseURL: process.env.OPENAI_BASE_URL || "https://openrouter.ai/api/v1",
+  apiKey: apiKey,
+});
 
 // Check API key on startup
 console.log('OpenAI/OpenRouter API configuration:', {
