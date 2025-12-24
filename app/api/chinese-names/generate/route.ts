@@ -8,9 +8,17 @@ const openai = new OpenAI({
   apiKey: process.env.OPENROUTER_API_KEY || process.env.OPENAI_API_KEY || '',
 });
 
+// Determine which model to use based on configuration
+const isOpenRouter = !process.env.OPENAI_BASE_URL || process.env.OPENAI_BASE_URL.includes("openrouter.ai");
+const model = isOpenRouter
+  ? (process.env.OPENROUTER_MODEL || "google/gemini-2.5-flash")
+  : (process.env.OPENAI_MODEL || "gpt-4o-mini");
+
 // Check API key on startup
 console.log('OpenAI/OpenRouter API configuration:', {
   baseURL: process.env.OPENAI_BASE_URL || "https://openrouter.ai/api/v1",
+  model: model,
+  provider: isOpenRouter ? 'OpenRouter' : 'OpenAI',
   hasApiKey: !!(process.env.OPENROUTER_API_KEY || process.env.OPENAI_API_KEY),
   keyLength: (process.env.OPENROUTER_API_KEY || process.env.OPENAI_API_KEY || '').length
 });
@@ -276,7 +284,7 @@ Requirements:
 - JSON only, no other text`;
 
         const completion = await openai.chat.completions.create({
-          model: "google/gemini-2.5-flash",
+          model: model,
           messages: [
             {
               role: "system",
@@ -440,7 +448,7 @@ Requirements:
               names_count: names.length,
               generation_metadata: {
                 generation_timestamp: new Date().toISOString(),
-                ai_model: "google/gemini-2.5-flash",
+                ai_model: model,
                 temperature: planType === '4' ? 0.9 : 0.8
               }
             })
