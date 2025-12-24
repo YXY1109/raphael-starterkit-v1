@@ -137,8 +137,34 @@ npm i
    ```
 
 8. 创建数据库表结构
-   - 复制SQL代码到Supabase SQL编辑器
-   - 执行SQL创建必要的表结构
+   - **打开 Supabase SQL 编辑器**
+     - 在 Supabase 控制台左侧菜单找到 **"SQL Editor"**
+     - 点击进入 SQL 编辑器界面
+
+   - **执行数据库初始化脚本**
+     - 打开项目中的 [`supabase/setup_database.sql`](supabase/setup_database.sql) 文件
+     - 复制整个文件的 SQL 代码
+     - 粘贴到 Supabase SQL 编辑器中
+     - 点击 **"Run"** 按钮执行
+
+   - **验证表是否创建成功**
+     - 执行完成后，在 **Table Editor** 中应该能看到以下表：
+       - `customers` - 客户信息
+       - `credits_history` - 积分交易历史
+       - `subscriptions` - 订阅信息
+       - `name_generation_logs` - 名字生成日志
+       - `saved_names` - 用户收藏的名字
+       - `popular_names` - 热门名字
+       - `generation_batches` - 生成批次
+       - `generated_names` - 生成的名字
+       - `ip_usage_logs` - IP 使用记录
+
+   > **💡 提示：** 脚本会自动：
+   > - 创建所有必需的表和索引
+   > - 设置行级安全策略 (RLS)
+   > - 创建触发器和辅助函数
+   > - 为现有用户自动创建客户记录（赠送 3 积分）
+   > - 插入示例热门名字数据
 
 ### 步骤 4: 设置 Creem.io
 
