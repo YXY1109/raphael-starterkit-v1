@@ -88,7 +88,8 @@ cd raphael-starter-kit
 ### 步骤 2: 安装依赖
 
 ```bash
-npm i
+pnpm install
+pnpm run dev
 ```
 
 ### 步骤 3: 设置 Supabase

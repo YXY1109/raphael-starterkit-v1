@@ -51,3 +51,6 @@ Chinesename.club/
 # IDE
 .vscode
 .cursor
+
+.idea/
+CLAUDE.md
